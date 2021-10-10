@@ -3,7 +3,7 @@ public class Spoonacular {
     private static final String SPOONACULAR_API='https://api.spoonacular.com';
     private static final String API_KEY='a384f3e6dbd64d74915c18cafd3f8aaf';
 
-    
+    @AuraEnabled
     public static void getRandomRecipe()
     {
         Http http = new Http();
@@ -17,6 +17,7 @@ public class Spoonacular {
         }
     }
     
+    @AuraEnabled
     public static void getRecipe(String recipeId)
     {
         Http http = new Http();
@@ -30,6 +31,7 @@ public class Spoonacular {
         }
     }
     
+    @AuraEnabled
     public static void getRecipeByIngredients(String ingrediants)
     {
         Http http = new Http();
