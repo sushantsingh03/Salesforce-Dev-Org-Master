@@ -1,0 +1,33 @@
+<apex:page lightningStylesheets="true" controller="CalculatorVfController">
+    
+    <apex:form >
+        <apex:pageBlock title="Welcome to the Sample Calculator">
+            
+            
+            <apex:inputText value="{!num1}"> Enter Number 1 &nbsp;</apex:inputText> <br/> <br/>
+            <apex:inputText value="{!num2}"> Enter Number 2 </apex:inputText> <br/><br/>
+            <apex:pageBlockSection id="pgBlkSecId">
+            <apex:outputText value="{!num3}">The result of the operation is : &nbsp;</apex:outputText><br/><br/>
+            </apex:pageBlockSection>
+            
+            <apex:commandButton action="{!add}" title="Add" value="Add" reRender="pgBlkSecId"/>
+            
+            <apex:commandButton action="{!substract}" title="substract" value="Substract" />
+            
+            <apex:commandButton action="{!divide}" title="divide" value="Divide" />
+            
+            <apex:commandButton action="{!multiply}" title="multiply" value="Multiply" />
+        
+        
+        
+      	</apex:pageBlock>
+    
+    
+    
+    
+    
+    
+    
+    
+    </apex:form>
+</apex:page>

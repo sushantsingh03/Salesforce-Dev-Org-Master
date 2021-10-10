@@ -1,0 +1,16 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+    <lightning:button label="Create Contact" name="quickContactCreate" onclick="{!c.createRecord}" />
+    
+    <!--<force:recordView recordId="{!v.recordId}" />
+    
+    <lightning:recordForm
+                          recordId="{!v.recordId}"
+                          objectApiName="Account"
+                          layoutType="Compact"
+                          columns="2"
+                          mode="view" /> -->
+    
+    <lightning:button label="Edit Account" name="editRecordEvent" onclick="{!c.editRecord}" />
+    
+</aura:component>

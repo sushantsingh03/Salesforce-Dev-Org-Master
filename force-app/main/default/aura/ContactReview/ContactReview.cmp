@@ -1,0 +1,21 @@
+<aura:component implements="lightning:isUrlAddressable">
+    <aura:attribute name="contactRecords" type="Object" />
+    
+    <aura:iteration items="{!v.contactRecords}" var="con" >
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-4">
+            {!con.FirstName}
+            </div>
+            <div class="slds-col slds-size_1-of-4">
+            {!con.LastName}
+            </div>
+            <div class="slds-col slds-size_1-of-4">
+            {!con.Email}
+            </div>
+            <div class="slds-col slds-size_1-of-4">
+                {!con.Phone} &nbsp;&nbsp;&nbsp;
+                <a href="Javascript:void(0);" onclick="{!c.RemoveRecord}">Remove</a>
+            </div>
+        </div> 
+    </aura:iteration> 
+</aura:component>

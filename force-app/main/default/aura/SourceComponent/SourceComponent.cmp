@@ -1,0 +1,8 @@
+<aura:component >
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:registerEvent name="CompEvent" type="c:ComponentEvent" />
+    <aura:handler name="CompEvent" event="c:ComponentEvent" action="{!c.handleCapture}" phase="capture"/>
+    <aura:handler name="CompEvent" event="c:ComponentEvent" action="{!c.handleBubble}"/>
+    <!--<lightning:button label="Handle Component Event" value="Handle Component Event" variant="brand" onclick="{!c.doInit}" /> -->
+</aura:component>

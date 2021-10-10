@@ -1,0 +1,11 @@
+<apex:page showHeader="false">
+	<apex:pageBlock >
+    	<apex:pageBlockSection >
+        
+        <p>Current Logged in user is {! $User.FirstName}</p>
+            
+       	</apex:pageBlockSection>
+    </apex:pageBlock>
+
+
+</apex:page>

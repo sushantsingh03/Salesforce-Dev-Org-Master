@@ -1,0 +1,119 @@
+<aura:component implements="lightning:isUrlAddressable" controller = "CartDetailAuraServices">
+    
+    <aura:attribute name="cartItemList" type="Object" />
+    <aura:attribute name="cartId" type="Object"/>
+    <aura:attribute name="subTotal" type="Integer"/>
+    <aura:attribute name="couponApplied" type="Boolean" />
+    <aura:attribute name="IdCart" type="String" />
+    <aura:attribute name="discountAmount" type="Integer"/>
+    <aura:attribute name="errorDiscount" type="String" />
+    
+    <lightning:navigation aura:id="navigation"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <div class="c-container">
+        <lightning:layout multipleRows="true">
+            <lightning:layoutItem padding="around-small" size="12">
+                <div class="page-section page-header">
+                    <h2>Beer Explorer</h2>
+                </div>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="12">
+                <lightning:layout>
+                    <lightning:layoutItem padding="around-small" size="3">
+                        <div class="page-section page-right">
+                            <h2>Left Sidebar</h2>
+                            <p>
+                                
+                            </p>
+                        </div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="6">
+                        <div class="page-section page-main">
+                            <h2 class="slds-text-title_caps">
+                                SHOPPING CART ({!v.cartItemList.length})
+                            </h2>
+                            
+                            <aura:if isTrue="{!v.cartItemList.length > 0}">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_1-of-4">Beer Name</div>
+                                    <div class="slds-col slds-size_1-of-4">Price</div>
+                                    <div class="slds-col slds-size_1-of-4">Quantity</div>
+                                    <div class="slds-col slds-size_1-of-4"></div> 
+                                </div>
+                                <aura:iteration items = "{!v.cartItemList}" var="item">
+                                    <c:CartItem cartItem="{!item}" />
+                                </aura:iteration>
+                                <lightning:buttonGroup>
+                                    <lightning:button label="Continue"
+                                                      onclick="{!c.homePage}" />
+                                    <lightning:button label="Proceed Checkout"
+                                                      variant="Brand"
+                                                      onclick="" />
+                                </lightning:buttonGroup>
+                                <aura:set attribute="else">
+                                    No record found<br/>
+                                    <a href="JavaScript:void(0);" class="slds-align_absolute_center" onclick="{!c.returnToBeerExplorer}">
+                                        Click Here to add new items
+                                    </a>
+                                </aura:set>
+                            </aura:if>
+                        </div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="3">
+                        <div class="page-section page-right">
+                            <aura:if isTrue="{!v.cartItemList.length > 0}">
+                                <div class="page-section page-right">
+                                    <b>Subtotal ({!v.cartItemList.length} item(s)) : </b> 
+                                    <lightning:formattedNumber value="{!v.subTotal}" 
+                                                               style="currency" 
+                                                               currencyCode="USD" />
+                                    <br/>
+                                    <a href = "Javascript:void(0);" onclick="{!c.hasCoupon}"> Have a Coupon ? Apply Here </a>
+                                    <aura:if isTrue="{!v.couponApplied}">
+                                        <p>
+                                            <!--{!v.couponApplied}-->
+                                            <br/>
+                                            <lightning:input name="Coupon Code" 
+                                                             label="Coupon Code" 
+                                                             placeholder="Enter the 15 digit Coupon code here..."
+                                                             aura:id="CouponNo"/>
+                                            <lightning:button label="Apply Coupon" onclick="{!c.applyCoupon}" />
+                                        </p>
+                                        <aura:if isTrue="{!v.errorDiscount != NULL}">
+                                            <p style="color:red;">{!v.errorDiscount}</p>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.discountAmount != NULL}">
+                                            <p style="color:green;">Discount of ${!v.discountAmount} has been applied to the cart..!!</p>
+                                        </aura:if>
+                                    </aura:if>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <lightning:buttonGroup>
+                                        <lightning:button label="Continue"
+                                                          onclick="{!c.homePage}" />
+                                        <lightning:button label="Proceed Checkout"
+                                                          variant="Brand"
+                                                          onclick="" />
+                                    </lightning:buttonGroup>
+                                </div>
+                            </aura:if>
+                            <div class="page-section page-right">
+                                <h2>Frequently Purchased Beers ....</h2>
+                                <p>
+                                    
+                                    
+                                </p>
+                            </div>
+                        </div>
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </lightning:layoutItem>
+            <lightning:layoutItem flexibility="auto" padding="around-small" size="12">
+                <div class="page-footer page-section">
+                    <h2>Beer Explorer</h2>
+                </div>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+</aura:component>

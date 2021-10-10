@@ -1,0 +1,37 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+    <div class="slds-p-around_x-small">
+	    <h1 class="heading"> I am in a lightning component. </h1>
+    </div>
+    
+    <!-- Using if else in aura components -->
+    
+    <aura:attribute type="Boolean" name="isGreater" default="True" />
+    
+    <aura:if isTrue="{!v.isGreater}">
+       		
+       Is Greater is true.      
+          
+      	<aura:set attribute="else">
+        		
+            Is greater is false.
+        
+        </aura:set>
+                    
+     </aura:if>        
+     
+    <!-- if else end -->
+    
+    <!-- using map -->
+    
+    <aura:attribute type="List" name="mapDemo" />
+    
+    <aura:iteration items="{!v.mapDemo}" var="item">
+    
+    	Key -- {!item.key} and Value -- {!item.value}
+    
+    </aura:iteration> <br/>
+    
+    <lightning:button variant="brand" label="Create Map" onClick="{!c.createMap}" /><br/>
+    
+</aura:component>

@@ -1,0 +1,28 @@
+<template>
+
+    <lightning-card title="Calculator" icon-name="standard:formula">
+        
+            <div>
+              <lightning-input type="number" name="firstNumber" value={number1} label="Input First Number : " onchange={handleChangeOnNumber1} min="0" required></lightning-input>
+            </div>
+       
+          <div>
+            <lightning-input type="number" name="secondNumber" value={number2} label="Input Second Number : " onchange={handleChangeOnNumber2} min="1" required></lightning-input>
+          </div>
+       
+          <div>
+            <lightning-button-group>
+              <lightning-button label="Add" icon-name="utility:add" icon-position="right" onclick={add}></lightning-button>
+              <lightning-button label="Substract" icon-name="utility:dash" icon-position="right" onclick={substract}></lightning-button>
+              <lightning-button label="Multiply" icon-name="utility:close" icon-position="right" onclick={multiply}></lightning-button>
+              <lightning-button label="Divide"  icon-name="utility:magicwand" icon-position="right" onclick={divide}></lightning-button>
+            </lightning-button-group>
+        </div>
+
+        <div>
+            Value of the operation performed is {result}.
+        </div>
+
+    </lightning-card>
+    
+</template>

@@ -1,0 +1,33 @@
+<aura:component controller = "MyOpportunityListController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+	
+    <!-- declaring cariables to be used to store values -->
+    <aura:attribute name="lstOpportunity" type="Opportunity[]"/>
+    <aura:attribute name="columnsToDisplay" type="List"/>
+    <aura:attribute name="searchKeyword" type="String"/>
+    
+    <aura:attribute name="newMessage" type="String" default="Hello World"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+	<lightning:card iconName= "standard:opportunity" title= "Opportunity List">
+        
+        <!--search box -->
+
+		<lightning:layout>
+        	<lightning:layoutItem size="3" padding="around-small">
+            	<lightning:input aura:id="searchField"
+                                 label= "Opportunity Name"
+                                 value = "{!v.searchkeyword}"
+                                 placeHolder = "Search Opportunities"
+                                 onChange = "{!c.searchOpportunities}"/>
+            
+            
+            
+            </lightning:layoutItem>
+        
+        </lightning:layout>
+   
+    </lightning:card>    
+    
+    
+</aura:component>

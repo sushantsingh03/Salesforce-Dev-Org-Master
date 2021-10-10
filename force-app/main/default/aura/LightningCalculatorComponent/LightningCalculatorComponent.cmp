@@ -1,0 +1,21 @@
+<aura:component >
+    
+    <aura:attribute type="Integer" name="numberOne" />
+    <aura:attribute type="Integer" name="numberTwo" />
+    <aura:attribute type="Integer" name="output" />
+    
+    <lightning:card title="Aura Calculator" variant="Narrow" iconName="standard:account">
+        
+        <lightning:input type="number" name="input1" label="Enter the First Number" value = "{!v.numberOne}" required="true" /><br/>
+        <lightning:input type="number" name="input2" label="Enter the Second Number" value = "{!v.numberTwo}" required="true" /><br/>
+        The output of the operation is : <ui:outputText value="{!v.output}"/> <br/>
+        
+        <lightning:button variant="brand" label="Add" title="Addition" onclick="{! c.handleAddition }"/>
+        <lightning:button variant="brand" label="Substract" title="Substraction" onclick="{! c.handleSub }"/>
+        <lightning:button variant="brand" label="Divide" title="Division" onclick="{! c.handleDivide }"/>
+        <lightning:button variant="brand" label="Multiply" title="Multiplication" onclick="{! c.handleMultiply }"/>
+
+         
+    </lightning:card>
+	
+</aura:component>

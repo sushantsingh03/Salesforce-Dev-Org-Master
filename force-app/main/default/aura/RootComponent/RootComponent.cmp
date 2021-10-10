@@ -1,0 +1,8 @@
+<aura:component >
+    <c:ContainerComponent />
+    
+    <aura:handler name="CompEvent" event="c:ComponentEvent" action="{!c.captureRoot}" phase="capture" />
+    
+    <aura:handler name="CompEvent" event="c:ComponentEvent" action="{!c.bubbleRoot}" />
+	
+</aura:component>

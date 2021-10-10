@@ -1,0 +1,16 @@
+<aura:component controller="MyOpportunityListController" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+    
+    <!-- Declaring variables inside lightning component in order to store data-->
+    <aura:attribute name="opptyList" type="Opportunity[]" />
+    <aura:attribute name="columnsToDisplay" type="List" />
+    <aura:attribute name="keyword" type="String" />
+    <aura:attribute name="newMessage" type="String" default="Hello World! " />
+    
+    <!-- Performs operation when the component is loaded -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    
+    
+    <h2>{!v.newMessage}</h2>
+	
+</aura:component>

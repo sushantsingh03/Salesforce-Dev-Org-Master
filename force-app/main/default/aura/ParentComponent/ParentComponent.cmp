@@ -1,0 +1,5 @@
+<aura:component >
+    <aura:attribute name="parentAttribute" type="String" default="Value in parent component" />
+    
+    <c:ChildComponent childAttribute="{!v.parentAttribute}"/>
+</aura:component>

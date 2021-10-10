@@ -1,0 +1,19 @@
+<aura:component >
+    
+    <aura:attribute name="testValue" type="String" />
+    
+    <!-- system events -->
+    <!-- we do not need to register system events -->
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <aura:handler event="c:TestApplicationEvent" action="{!c.handleApplicationEvent}" />
+    
+    Value of the testValue variable after the doInit method - {!v.testValue}
+    
+    <!-- firing an Application event using this lightning button -->
+    
+    <lightning:button label="Fire Application Event" onclick="{!c.clickButton}" />
+    
+	
+</aura:component>

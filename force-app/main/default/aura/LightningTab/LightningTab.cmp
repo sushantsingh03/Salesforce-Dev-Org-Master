@@ -1,0 +1,19 @@
+<aura:component >
+    <aura:attribute name="tabInfo" type="String" />
+    <div class="slds-p-around_small">
+        <lightning:tabset variant="scoped" selectedTabId="con">
+            <lightning:tab label="Account" id="acc" onactive="{!c.handleActive}"> Account Info </lightning:tab>
+            <lightning:tab label="Contact" id="con" onactive="{!c.handleActive}"> Contact Info </lightning:tab>
+            <lightning:tab label="Opportunity" id="opp" onactive="{!c.handleActive}"> Opportunity Info </lightning:tab>
+            <lightning:tab label="Cases" id="case" onactive="{!c.handleActive}"> Cases Info </lightning:tab>
+        </lightning:tabset>
+    </div>
+    <div class="slds-p-around_small">
+        <lightning:tabset variant="vertical" selectedTabId="con">
+            <lightning:tab label="Account" id="acc" onactive="{!c.handleActive}"> Account Info </lightning:tab>
+            <lightning:tab label="Contact" id="con" onactive="{!c.handleActive}"> Contact Info </lightning:tab>
+            <lightning:tab label="Opportunity" id="opp" onactive="{!c.handleActive}"> Opportunity Info </lightning:tab>
+            <lightning:tab label="Cases" id="case" onactive="{!c.handleActive}"> Cases Info </lightning:tab>
+        </lightning:tabset>
+    </div>
+</aura:component>

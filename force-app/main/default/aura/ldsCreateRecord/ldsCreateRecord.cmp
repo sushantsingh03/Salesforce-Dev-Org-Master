@@ -1,0 +1,31 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+    <aura:attribute name="targetRecord" type="object"/>
+    <aura:attribute name="targetFields" type="object"/>
+    <aura:attribute name="targetRecordError" type="String"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <!-- LDS for Create Data -->
+    <div>
+        <force:recordData aura:id="recordCreator"
+                          recordId="{!v.recordId}"
+                          layoutType="FULL"
+                          targetRecord="{!v.targetRecord}"
+                          targetFields="{!v.targetFields}"
+                          targetError="{!v.targetRecordError}" />
+    </div>
+    
+    <div>
+        <lightning:input label="Beer Name" required="true" value = "{!v.targetFields.Name}" />
+        <lightning:button label="Save" value="Save" variant="brand" onclick="{!c.doSave}" />
+    </div>
+    
+    <!-- Display Lightning Data Service errors -->
+    <aura:if isTrue="{!not(empty(v.targetRecordError))}">
+        <div class="recordError">
+            {!v.targetRecordError}
+        </div>
+    </aura:if>
+    
+</aura:component>

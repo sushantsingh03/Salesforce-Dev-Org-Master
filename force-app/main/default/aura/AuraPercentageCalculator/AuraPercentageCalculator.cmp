@@ -1,0 +1,21 @@
+<aura:component >
+    
+    	<aura:attribute access="public" type="Integer" name="wholeNumber"/>
+        <aura:attribute access="public" type="Integer" name="percentage"/>
+    
+    <lightning:card title="Percentage Calculator">
+        
+        <lightning:input type="number" name="input1" label="Enter a number" value="{!v.wholeNumber}" />
+        <lightning:input type="number" name="input2" label="Enter a percentage" formatter="percent-fixed" value="{!v.percentage}" />
+        
+        <lightning:button variant="brand" label="Calculate" title="Calculate" onclick="{!c.handleClick}" />
+        
+      	<br/>
+        <br/>
+        
+        <p>  {!v.percentage}% of  {!v.wholeNumber} is - {!mult(v.wholeNumber,(v.percentage/100))}</p> 
+        
+    </lightning:card>
+
+	
+</aura:component>

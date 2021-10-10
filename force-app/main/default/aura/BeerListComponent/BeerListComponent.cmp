@@ -1,0 +1,52 @@
+<aura:component >
+    <aura:attribute name="beerLists" type="Object" />
+    <lightning:overlayLibrary aura:id="overlayLib" />
+    <aura:registerEvent name="addToCart" type="c.AddToCart" />
+    <!--
+    <aura:iteration items="{!v.beerLists}" var="item">
+        {!item.Id} - {!item.Name}<br/>
+    </aura:iteration>
+ -->
+    <div class="slds-grid slds-wrap">
+        <aura:iteration items="{!v.beerLists}" var="beer" indexVar="index"> 
+            <div class="slds-col slds-size_1-of-4 slds-p-around_small">
+                <lightning:card title="{!beer.Name}" iconName="custom:custom56">
+                    <p class="slds-p-horizontal-small" >
+                        <div class="slds-grid slds-gutters">
+                            <div class="slds-col slds-size_1-of-3">
+                                <img src="{!$Resource.beerImage}"/>
+                            </div>
+                            <div class="slds-col slds-size_2-of-3">
+                                Beer Name - {!beer.Name} &nbsp;&nbsp;<br/>
+                                Brewery Id - {!beer.Brewery_Id__c} &nbsp;&nbsp;<br/>
+                                Alchohol Percentage - {!beer.Alcohol__c} &nbsp;&nbsp;<br/>
+                                Brewery Name - {!beer.Brewery_Name__c} &nbsp;&nbsp;<br/>
+                            </div>  
+                        </div>                       
+                    </p> 
+                    
+                   <aura:set attribute="actions">
+                       
+                       <lightning:button variant="brand" 
+                                         label="View Details" 
+                                         value="{!beer.Name}" 
+                                         name="{!beer.Id}"  
+                                         onclick="{!c.showDetails}" />
+                    
+                    
+                   </aura:set>
+                    <aura:set attribute="footer">
+                       
+                       <lightning:button variant="brand" 
+                                         label="Add to Cart" 
+                                         value="{!index}" 
+                                         name="{!beer.Id}"  
+                                         onclick="{!c.addToCart}" />
+                    
+                    
+                   </aura:set>
+                </lightning:card>
+            </div>
+        </aura:iteration>
+    </div>
+</aura:component>

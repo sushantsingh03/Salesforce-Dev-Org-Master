@@ -1,0 +1,12 @@
+<aura:component >
+    <aura:registerEvent name="searchEvent" type="c:SearchEvent" />
+    <div class="slds-p-around_small">
+        <lightning:input
+                         aura:id="accountSearchInput"
+                         name="Account Search"
+                         label="Account Search"
+                         type="search" 
+                         variant="label-hidden"
+                         onchange="{!c.doSearch}"/> 
+    </div>
+</aura:component>

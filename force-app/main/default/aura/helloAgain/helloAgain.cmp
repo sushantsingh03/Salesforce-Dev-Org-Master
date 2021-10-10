@@ -1,0 +1,15 @@
+<aura:component controller="SalesforceAccountsAuraService" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	
+    <aura:attribute name="variable" type="String"/>
+    <aura:attribute name="Accounts" type="Account[]" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
+    
+    {!v.variable}<br/>
+    
+    <aura:iteration items="{!v.Accounts}" var="acc">
+        {!acc.Name} &nbsp; {!acc.Id}<br/> &nbsp;
+        
+    </aura:iteration>
+        
+</aura:component>

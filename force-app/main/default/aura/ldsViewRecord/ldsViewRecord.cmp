@@ -1,0 +1,31 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+    <aura:attribute name="targetRecord" type="object"/>
+    <aura:attribute name="targetFields" type="object"/>
+    <aura:attribute name="targetRecordError" type="String"/>
+    
+    <!-- LDS for View Data -->
+    <div>
+    	<force:recordData aura:id="recordViewer"
+                          recordId="{!v.recordId}"
+                          layoutType="FULL"
+                          fields="Id,Name,Brewery_Id__c"
+                          mode="VIEW"
+                          targetRecord="{!v.targetRecord}"
+                          targetFields="{!v.targetFields}"
+                          targetError="{!v.targetRecordError}" />
+    </div>
+    
+    <div>
+        Using Target Fields - <br/>
+        Beer Name - {!v.targetFields.Name} <br/>
+        Brewery Id - {!v.targetFields.Brewery_Id__c}<br/>
+        Brwery Name - {!v.targetFields.Brewery_Name__c}<br/><br/>
+        
+        Using Target records -<br/>
+        Beer Name - {!v.targetRecord.fields.Name.value}<br/>
+        Brewery Id - {!v.targetFields.Brewery_Id__c}<br/>
+        Brwery Name - {!v.targetFields.Brewery_Name__c}<br/>
+    </div>
+	
+</aura:component>
